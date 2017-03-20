@@ -1,0 +1,33 @@
+(declare-fun |main::i| () Int)
+(declare-fun |main::s| () Int)
+(declare-fun |main::s__1| () Int)
+(declare-fun |sum::a| () Int)
+(declare-fun |sum::b| () Int)
+(declare-fun |sum::__retval__| () Int)
+
+main:
+(assert (= |main::s| (* 2 |main::i|)))
+(assert (<= (* 2 |main::i|) 6))
+(assert (= |main::s__1| (* 2 |main::i|)))
+(assert false)
+(assert (distinct (+ (- |main::s|) (* 2 |main::i|)) 0))
+(assert (<= |main::i| 2))
+(assert (let ((.cse0 (* 2 |main::i|))) (= .cse0 .cse0)))
+(assert (<= (* 2 |main::i|) (+ 6 (- 1))))
+
+sum:
+(assert (<= (* 2 |main::i|) 6))
+(assert false)
+(assert (<= |main::i| 2))
+(assert (<= (+ |sum::b| |sum::a|) (+ (* 2 |main::i|) (- 1))))
+(assert (<= |main::i| 3))
+(assert (<= (* 2 |main::i|) (+ |sum::b| |sum::a| (- 1))))
+(assert (= (+ (* 2 |main::i|) (- |sum::b|) (- |sum::a|)) 0))
+(assert (= (+ |main::i| (- |sum::b|)) 0))
+(assert (distinct (+ (- |sum::__retval__|) (* 2 |main::i|)) 0))
+(assert (= (+ |sum::b| (- |sum::a|)) 0))
+(assert (let ((.cse0 (* 2 |main::i|))) (= .cse0 .cse0)))
+(assert (= (* 2 |main::i|) (+ |sum::a| |sum::b|)))
+(assert (<= (* 2 |main::i|) (+ 6 (- 1))))
+(assert (= (* 2 |main::i|) |sum::__retval__|))
+
